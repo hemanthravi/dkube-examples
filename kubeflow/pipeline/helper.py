@@ -25,7 +25,7 @@ HOST_URL = 'https://{}.endpoints.{}.cloud.goog/pipeline'
 OUTPUT_PACKAGE_PATH = 'pipeline.tar.gz'
 NAMESPACE = 'kubeflow'
 EXPERIMENT_NAME = 'default-experiment'
-PIPELINE_NAME = 'Img-Denoising2'
+PIPELINE_NAME = 'Img-Denoising-cicd'
 
 
 def update_component_spec(repo_url, image_tag):

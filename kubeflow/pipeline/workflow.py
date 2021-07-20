@@ -25,7 +25,7 @@ output_mount_point = "/opt/dkube/output/"
 input_mount_point = "/opt/dkube/input/"
 
 @kfp.dsl.pipeline(
-    name='Img-Denoising',
+    name='Img-Denoising-cicd',
     description='IMAGE-DENOISING EXAMPLE'
 )
 def image_denoising_pipeline():
