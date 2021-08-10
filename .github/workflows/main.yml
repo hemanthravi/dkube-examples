@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the tensorflow branch
+  push:
+    branches: [ sklearn ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          sudo apt install python3-pip
+          pip3 install kfp
+          python3 -c " \
+          import kfp; \
+          existing_token='eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc0YmNkZjBmZWJmNDRiOGRhZGQxZWIyOGM2MjhkYWYxIn0.eyJ1c2VybmFtZSI6Im9jZGt1YmUiLCJyb2xlIjoiZGF0YXNjaWVudGlzdCxtbGUscGUsb3BlcmF0b3IiLCJleHAiOjQ4NjgxNzk4MTMsImlhdCI6MTYyODE3OTgxMywiaXNzIjoiREt1YmUifQ.WbdyrdywEEMk7OD6KEyU8C_HVmXStE_gXgKNQfNnGxVmrrCqBHBV9ZNPYg_g7mk8XTbA3mZ2iJ86sFr9DmXk2yNx-8-Na9zL3XkVPf-a6nE-33QGf1PBemg9s-l-PJ7pWrEXOWttUKRJTJ2M9ZEpUAi9AZZ5UfOvVpudga0bh_XbLmvP7TPCnVOk0g0kvBDWIVvaEvEpznO2WcWYFXUVEh80Okx5205lvGuv9ajQLkphbiNdnnGOV6Wr8TG3WIvN1M5e-74Hj13fUZU7Db1SiQfD2qqidrF5VdLqEK2nDP2y60XaynbWf1XiTqtj70-b8u_zUCU9q3yylDbR1TUigg'; \
+          client = kfp.Client(host='https://34.69.66.134:32222/pipeline', \
+                              existing_token=existing_token, \
+                              namespace='ocdkube'); \
+          run = client.run_pipeline('e1f2fb09-0aaa-4406-9d97-f1c3a41c790c', 'insurance cicd, \
+                                    pipeline_id='d6c9e5ef-65fa-4ca9-a4fe-d525cb8e0b07', params={'token': existing_token})"
