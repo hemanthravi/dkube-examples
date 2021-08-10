@@ -4,3 +4,5 @@ pipelines:
   pipelines:
     - name: workflow-dkube.py
       run: true
+
+Dockerfile: Dockerfile
