@@ -15,9 +15,9 @@ import kfp.compiler as compiler
 from kfp import components
 from kubernetes import client as k8s_client
 
-dkube_preprocessing_op      = components.load_component_from_file("./preprocess.yaml")
-dkube_training_op           = components.load_component_from_file("./training.yaml")
-dkube_serving_op            = components.load_component_from_file("./serving.yaml")
+dkube_preprocessing_op      = components.load_component_from_url("https://github.com/hemanthravi/dkube-examples/blob/sklearn/kubeflow/pipeline/preprocess.yaml")
+dkube_training_op           = components.load_component_from_url("https://github.com/hemanthravi/dkube-examples/blob/sklearn/kubeflow/pipeline/training.yaml")
+dkube_serving_op            = components.load_component_from_url("https://github.com/hemanthravi/dkube-examples/blob/sklearn/kubeflow/pipeline/serving.yaml")
 
 image = "docker.io/ocdr/d3-datascience-sklearn:v0.23.2"
 serving_image = "ocdr/sklearnserver:0.23.2"
