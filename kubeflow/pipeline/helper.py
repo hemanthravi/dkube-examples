@@ -58,10 +58,10 @@ def deploy_pipeline(
 
  client = kfp.Client(namespace=namespace)
 
- pipeline = client.upload_pipeline(
-   pipeline_package_path=kfp_package_path,
-   pipeline_name=pipeline_name)
- pipeline_id = pipeline.id
+# pipeline = client.upload_pipeline(
+#   pipeline_package_path=kfp_package_path,
+#   pipeline_name=pipeline_name)
+# pipeline_id = pipeline.id
  pipeline_id = "d6c9e5ef-65fa-4ca9-a4fe-d525cb8e0b07"
 
  if run:
@@ -77,6 +77,9 @@ def deploy_pipeline(
 
 def main(operation, **args):
 
+  raise ValueError(
+    'Invalid operation name: {}. Valid operations: update-specs | deploy-pipeline'.format(operation))
+  
   # Update Component Specs
   if operation == 'update-specs':
     print('Setting images to the component spec...')
