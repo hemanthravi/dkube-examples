@@ -1,0 +1,5 @@
+pipelines:
+  path: kubeflow/pipeline
+  token:
+  pipelines:
+    - name: workflow.py

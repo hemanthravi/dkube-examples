@@ -1,0 +1,24 @@
+description: Adds to float values
+implementation:
+  container:
+    command: ["python", "/my_add.py"]
+    args:
+    - --x-value
+    - inputValue: x-value
+    - --y-value
+    - inputValue: y-value
+    - --result-path
+    - outputPath: sum
+    image: __IMAGE__
+inputs:
+- default: 0
+  description: Input x value
+  name: x-value
+  type: Integer
+- default: 0
+  description: Input y value
+  name: y-value
+  type: Integer
+outputs:
+- name: sum
+name: my_add

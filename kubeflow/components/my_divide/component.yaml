@@ -1,0 +1,27 @@
+description: Divides to float values
+implementation:
+  container:
+    command: ["python", "/my_divide.py"]
+    args:
+    - --x-value
+    - inputValue: x-value
+    - --y-value
+    - inputValue: y-value
+    - --quotient-path
+    - outputPath: quotient
+    - --remainder-path
+    - outputPath: remainder
+    image: __IMAGE__
+inputs:
+- default: 0
+  description: Input x value
+  name: x-value
+  type: Integer
+- default: 0
+  description: Input y value
+  name: y-value
+  type: Integer
+outputs:
+- name: quotient
+- name: remainder
+name: my_divide
