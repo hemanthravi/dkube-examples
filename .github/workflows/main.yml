@@ -35,4 +35,5 @@ jobs:
                               existing_token=existing_token, \
                               namespace='ocdkube'); \
           run = client.run_pipeline('e1f2fb09-0aaa-4406-9d97-f1c3a41c790c', 'insurance cicd, \
-                                    pipeline_id='d6c9e5ef-65fa-4ca9-a4fe-d525cb8e0b07', params={'token': existing_token})"
+                                    pipeline_id='d6c9e5ef-65fa-4ca9-a4fe-d525cb8e0b07', \
+                                    params={'token': existing_token})"
