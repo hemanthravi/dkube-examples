@@ -18,8 +18,8 @@ if TF_CONFIG and '"master"' in TF_CONFIG:
     os.environ['TF_CONFIG'] = TF_CONFIG.replace('"master"', '"chief"')
 print("GPU USED:",os.environ['NVIDIA_VISIBLE_DEVICES'])
 
-if TF_CONFIG and ast.literal_eval(TF_CONFIG)['task']['type'] != 'ps':
-    strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
+#if TF_CONFIG and ast.literal_eval(TF_CONFIG)['task']['type'] != 'ps':
+strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
     
 def data_loader(hyperparams):
     f = gzip.open('/mnist/mnist.pkl.gz', 'rb')
