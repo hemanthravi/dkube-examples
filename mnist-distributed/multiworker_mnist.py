@@ -64,7 +64,7 @@ class DistributedTraining(object):
         self.train_dataset, self.test_dataset = data_loader(hyperparams)
         
     def train(self):
-        if TF_CONFIG and ast.literal_eval(TF_CONFIG)['task']['type'] != 'ps':
+        if TF_CONFIG == None or (TF_CONFIG and ast.literal_eval(TF_CONFIG)['task']['type'] != 'ps'):
             model = model_with_strategy(self.learning_rate)
             #steps per epoch are reduced here to train on limited resources
             #you are free to remove this argument
